@@ -24,8 +24,20 @@ notesCtrl.createNewNote = async (req, res) => {
 }
 
 
-notesCtrl.updateNote = (req, res) => {
-    res.send('Actualizar nota');
+notesCtrl.updateNote = async (req, res) => {
+    // console.log(req.body);
+    // console.log(req.params.id);
+
+    const {title, description} = req.body;
+
+    await Note.findByIdAndUpdate(req.params.id, {
+        title,
+        description
+    })
+
+    // res.send('Actualizar nota');
+    res.json({status: 'Nota Actualizada'});
+
 }
 
 notesCtrl.deleteNote = async (req, res) => {

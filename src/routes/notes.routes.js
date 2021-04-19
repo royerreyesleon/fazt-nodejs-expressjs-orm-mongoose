@@ -32,6 +32,11 @@ router.post('/notes/add' , createNewNote)
 // EDITAR
 /*
 http://localhost:3007/notes/edit/1
+Content-Type application/json
+{
+    "title":"Titulo 1",
+    "description":"Descripcion 1"
+}
 */
 router.put('/notes/edit/:id' , updateNote)
 
